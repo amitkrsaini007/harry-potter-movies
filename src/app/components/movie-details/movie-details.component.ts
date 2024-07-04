@@ -17,10 +17,8 @@ import { TimeDurationPipe } from '../../pipes/time-duration.pipe';
 export class MovieDetailsComponent implements OnInit {
   movieDetails!: MovieDetails;
   constructor(private activatedRoute:ActivatedRoute, private httpclientService:HttpClientService){ 
-    //this.routeId = this.route.snapshot.params['id'];
-    
-    
-  }
+    //this.routeId = this.route.snapshot.params['id'];   
+      }
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['movieId'];
     this.httpclientService.getMovieDetails(id).subscribe({
