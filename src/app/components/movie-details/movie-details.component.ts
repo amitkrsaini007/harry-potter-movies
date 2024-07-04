@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClientService } from '../../services/http-client.service';
 import { MovieDetails } from '../../interfaces/movie-details';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { NgFor, NgIf } from '@angular/common';
 import { TimeDurationPipe } from '../../pipes/time-duration.pipe';
 
@@ -22,11 +22,11 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['movieId'];
     this.httpclientService.getMovieDetails(id).subscribe({
-      next:(res)=>{
+      next:(res:MovieDetails)=>{
         this.movieDetails = res;
         
       },
-      error:(error)=>{
+      error:(error:HttpErrorResponse)=>{
         console.log(error)
       }
     })

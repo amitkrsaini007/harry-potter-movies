@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from '../../services/http-client.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { MovieListItem } from '../../interfaces/movie-list-item';
 import { NgFor } from '@angular/common';
 import { TimeDurationPipe } from '../../pipes/time-duration.pipe';
@@ -26,10 +26,10 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.movieTitle)
     this.httpClientService.getMoviesList().subscribe({
-      next: (res) => {
+      next: (res:MovieListItem[]) => {
         this.moviesList = res;
       },
-      error: (error) => {
+      error: (error:HttpErrorResponse) => {
         console.log(error)
       }
     })
