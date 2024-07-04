@@ -1,0 +1,27 @@
+<div class="container">
+    <form class="form-inline">
+        <h3>Filter</h3>
+        <div class="row">
+            <div class="col">
+              <label for="title">Title</label>
+              <input id="title" type="text" class="form-control" name="Title" placeholder="Enter title"  [(ngModel)]="movieTitle">
+            </div>
+            <div class="col">
+                <label for="year">Release Year</label>
+                <input id="year" (keypress)="yearInputValidation($event)" type="text" class="form-control" placeholder="Enter year" name="Release Year" [(ngModel)]="releaseYear">
+                <span [hidden]="isNum" style="color: red; font-size: 70%;">Only number allowed</span>
+              </div>           
+          </div>
+    </form>
+    <ul>
+        <li *ngFor="let item of moviesList | filter : movieTitle : releaseYear">
+            <h4>{{ item.title }}</h4>
+            <span><strong>Release Date : </strong> {{ item.release_date }}</span>
+            <span><strong>Budget: </strong> ${{ item.budget }} million</span>
+            <span><strong>Duration : </strong> {{ item.duration | timeDuration }}</span>            
+            <a routerLink={{item.id}} class="btn btn-primary" >Details</a>          
+        </li>
+    </ul>
+
+</div>
+

@@ -1,0 +1,25 @@
+<div class="container" *ngIf="movieDetails?.id">
+    <a routerLink="/movies" class="btn" ><span class="icon-home"></span>Back</a>     
+    <h2>{{ movieDetails.title }}</h2>
+    <p>
+        <img [src]="movieDetails.poster" [alt]="movieDetails.title" width="240" align="left"/>
+        <strong>Summary : </strong> {{ movieDetails.summary }}
+    </p>
+    <h3>Details</h3>
+    <div class="row details">
+        <div class="col-md-3"><strong>Box Office</strong></div><div class="col-md-9">${{ movieDetails.box_office }} million</div>
+        <div class="col-md-3"><strong>Budget </strong></div><div class="col-md-9">${{ movieDetails.budget }}  million </div>
+        <div class="col-md-3"><strong>Duration </strong></div><div class="col-md-9">{{ movieDetails.duration | timeDuration }} </div>
+        <div class="col-md-3"><strong>Producers</strong></div>
+        <div class="col-md-9">
+            <ng-container *ngFor=" let item of movieDetails.producers;let isLast = last">
+            <span>{{ item }}{{ isLast ? "" : " , " }}</span>
+            </ng-container> 
+        </div>
+        <div class="col-md-3"><strong>Cinematographers</strong></div><div class="col-md-9">
+            <ng-container *ngFor=" let item of movieDetails.cinematographers; let isLast = last">
+                <span>{{ item }}{{ isLast ? "" : " , " }}</span>
+            </ng-container>
+        </div>        
+     </div>    
+</div>

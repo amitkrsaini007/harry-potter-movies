@@ -1,0 +1,13 @@
+.container{max-width: 80%;  box-sizing: border-box; padding-right: 10%;}
+h2, h3{margin: 2rem 0;}
+h3{clear: both; text-align: center;}
+img{margin-top: -8px;
+    margin-left: -24px;
+    margin-right: 16px;}
+.details{ border: 1px solid #aaa;}
+.details > div {border-bottom: 1px solid #aaa; padding: 8px;}
+.details .col-md-3{background-color: #e6e6e6; text-align: right;}
+.btn{display: block;
+    margin-top: 16px;
+    margin-bottom: -1rem; color: #000;}
+
