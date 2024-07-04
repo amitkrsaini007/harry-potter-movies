@@ -27,7 +27,7 @@ export class MovieDetailsComponent implements OnInit {
         
       },
       error:(error:HttpErrorResponse)=>{
-        console.log(error)
+        console.error(error)
       }
     })
   }

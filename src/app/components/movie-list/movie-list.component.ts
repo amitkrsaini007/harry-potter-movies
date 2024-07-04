@@ -24,13 +24,13 @@ export class MovieListComponent implements OnInit {
 
   constructor(private httpClientService: HttpClientService) { }
   ngOnInit(): void {
-    console.log(this.movieTitle)
+    
     this.httpClientService.getMoviesList().subscribe({
       next: (res:MovieListItem[]) => {
         this.moviesList = res;
       },
       error: (error:HttpErrorResponse) => {
-        console.log(error)
+        console.error(error)
       }
     })
   }
